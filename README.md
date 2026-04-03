@@ -79,6 +79,3 @@ Vehicle positions are updated automatically on a timer to simulate live movement
 - Add multilingual support
 - Improve marker animation further
 
-## Author
-
-Add your name here.
