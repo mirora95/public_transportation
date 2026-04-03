@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microbus Live Tracker</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  >
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div>
+          <p class="eyebrow">Public Transport</p>
+          <h1>Microbus Tracker</h1>
+        </div>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+          Dark mode
+        </button>
+      </div>
+
+      <section class="dashboard-grid">
+        <article class="stat-card">
+          <span class="stat-label">Total vehicles</span>
+          <strong id="totalVehiclesCard">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Active routes</span>
+          <strong id="activeRoutesCard">0</strong>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>Route tools</h2>
+        <label for="routeSelect">Select route</label>
+        <select id="routeSelect">
+          <option value="all">All routes</option>
+        </select>
+
+        <label for="stopSearch">Search stop name</label>
+        <div class="search-row">
+          <input id="stopSearch" type="text" placeholder="Example: Chorsu">
+          <button id="stopSearchButton" type="button">Find</button>
+        </div>
+
+        <div class="button-row">
+          <button id="locateButton" type="button">Locate Me</button>
+          <button id="resetButton" type="button" class="secondary-button">Reset View</button>
+        </div>
+      </section>
+
+      <section class="panel route-panel">
+        <h2>Route overview</h2>
+        <p><span>Start:</span> <strong id="routeStart">Choose a route</strong></p>
+        <p><span>End:</span> <strong id="routeEnd">Choose a route</strong></p>
+        <p><span>Total stops:</span> <strong id="routeStops">0</strong></p>
+        <p><span>Active vehicles:</span> <strong id="activeVehiclesCount">0</strong></p>
+      </section>
+
+      <section class="panel">
+        <h2>Nearest vehicles</h2>
+        <ul id="nearestVehiclesList" class="info-list">
+          <li>Share your location to see nearby microbuses.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>Legend</h2>
+        <div class="legend-item">
+          <span class="legend-swatch route-swatch"></span>
+          <span>Selected route line</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot vehicle-swatch"></span>
+          <span>Microbus</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot stop-swatch"></span>
+          <span>Bus stop</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot user-swatch"></span>
+          <span>Your location</span>
+        </div>
+      </section>
+    </aside>
+
+    <main class="map-panel">
+      <div class="map-header">
+        <div>
+          <p class="eyebrow">Live city map</p>
+          <h2 id="mapTitle">All routes currently visible</h2>
+        </div>
+        <span class="auto-update-pill">Auto updates every 4 seconds</span>
+      </div>
+      <div id="map"></div>
+    </main>
+  </div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="script.js"></script>
+</body>
+</html>
